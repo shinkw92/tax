@@ -1,92 +1,123 @@
-��<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
-    <style>
-        body {
-            font-family: sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f0f0f0;
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        .numbers-container {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .number {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-        }
-    </style>
+    <title>바른 세무회계 - 당신의 든든한 세무 파트너</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <div id="numbers-container" class="numbers-container"></div>
-        <button id="generate-button">Generate Numbers</button>
-    </div>
-    <script>
-        const numbersContainer = document.getElementById('numbers-container');
-        const generateButton = document.getElementById('generate-button');
+    <header>
+        <nav class="container">
+            <div class="logo">바른 <span>세무회계</span></div>
+            <ul>
+                <li><a href="#home">홈</a></li>
+                <li><a href="#about">사무소 소개</a></li>
+                <li><a href="#services">주요 서비스</a></li>
+                <li><a href="#contact">오시는 길</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        function generateNumbers() {
-            const numbers = new Set();
-            while (numbers.size < 6) {
-                const randomNumber = Math.floor(Math.random() * 45) + 1;
-                numbers.add(randomNumber);
-            }
-            return Array.from(numbers).sort((a, b=> a - b);
-        }
+    <section id="home" class="hero">
+        <div class="hero-content container">
+            <h1>세금 고민의 해답,<br>전문적인 파트너와 함께하세요</h1>
+            <p>풍부한 경험과 전문성을 바탕으로 최적의 절세 솔루션을 제공합니다.</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn primary">무료 상담 신청</a>
+                <a href="#services" class="btn secondary">서비스 안내</a>
+            </div>
+        </div>
+    </section>
 
-        function displayNumbers(numbers) {
-            numbersContainer.innerHTML = '';
-            for (const number of numbers{
-                const numberElement = document.createElement('div');
-                numberElement.classList.add('number');
-                numberElement.textContent = number;
-                numbersContainer.appendChild(numberElement);
-            }
-        }
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">주요 서비스</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <i class="fas fa-calculator"></i>
+                    <h3>기장대리</h3>
+                    <p>사업자의 장부 작성을 대행하여 체계적인 경영 관리와 정확한 세무 신고를 도와드립니다.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    <h3>법인/종합소득세 신고</h3>
+                    <p>전문적인 검토를 통해 합법적인 절세 혜택을 극대화하고 신고 리스크를 최소화합니다.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>상속/증여/양도세</h3>
+                    <p>복잡한 자산 관련 세금을 사전에 철저히 분석하여 최적의 플랜을 설계해 드립니다.</p>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-user-check"></i>
+                    <h3>세무조사 대응</h3>
+                    <p>예상치 못한 세무조사 시 풍부한 실무 경험을 바탕으로 권익을 보호해 드립니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        function generateAndDisplayNumbers() {
-            const newNumbers = generateNumbers();
-            displayNumbers(newNumbers);
-        }
+    <section id="about" class="about">
+        <div class="container flex">
+            <div class="about-text">
+                <h2>신뢰와 정직을 최우선으로 합니다</h2>
+                <p>바른 세무회계는 고객님의 성공적인 비즈니스를 위해 정직하고 투명한 세무 서비스를 약속드립니다. 단순한 대행을 넘어 고객의 입장에서 고민하는 비즈니스 파트너가 되겠습니다.</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check"></i> 다년간의 풍부한 실무 경험</li>
+                    <li><i class="fas fa-check"></i> 실시간 1:1 전담 세무사 배정</li>
+                    <li><i class="fas fa-check"></i> 철저한 비밀 유지 및 신속한 대응</li>
+                </ul>
+            </div>
+            <div class="about-img">
+                <div class="img-box">Professional Tax Service</div>
+            </div>
+        </div>
+    </section>
 
-        generateButton.addEventListener('click', generateAndDisplayNumbers);
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">상담 신청 및 오시는 길</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>상담 전화</h4>
+                            <p>02-1234-5678</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>주소</h4>
+                            <p>서울특별시 강남구 테헤란로 123, 15층 (바른빌딩)</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>이메일</h4>
+                            <p>contact@baruntax.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="map-placeholder">
+                    <p>지도가 표시되는 영역입니다</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // Initial generation
-        generateAndDisplayNumbers();
-    </script>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 바른 세무회계. All Rights Reserved.</p>
+            <p>사업자등록번호: 123-45-67890 | 대표 세무사: 홍길동</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
 </body>
 </html>

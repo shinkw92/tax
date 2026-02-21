@@ -1,3 +1,55 @@
+// 블로그 글 데이터 관리 (여기에 글을 추가하면 홈페이지에 바로 반영됩니다)
+const blogPosts = [
+    {
+        id: 1,
+        title: "2026년 상반기 주요 세법 개정안 안내",
+        category: "절세 팁",
+        summary: "올해부터 달라지는 주요 세법 내용을 알기 쉽게 정리해 드립니다.",
+        link: "tax-info.html",
+        imgText: "Tax Tip 1"
+    },
+    {
+        id: 2,
+        title: "효율적인 사전 증여 전략 세우기",
+        category: "상속/증여",
+        summary: "가족의 미래를 위한 현명한 자산 이전 방법을 전문가와 상의하세요.",
+        link: "tax-info.html",
+        imgText: "Tax Tip 2"
+    },
+    {
+        id: 3,
+        title: "1주택자 비과세 요건 완벽 가이드",
+        category: "부동산 세무",
+        summary: "복잡한 부동산 양도소득세, 이것만 알면 실수하지 않습니다.",
+        link: "tax-info.html",
+        imgText: "Tax Tip 3"
+    }
+];
+
+// 블로그 글 렌더링 함수
+function renderBlogPosts() {
+    const container = document.getElementById('blog-posts-container');
+    if (!container) return;
+
+    container.innerHTML = blogPosts.map(post => `
+        <article class="blog-card">
+            <div class="blog-card-img">${post.imgText}</div>
+            <div class="blog-card-content">
+                <span class="category">${post.category}</span>
+                <h3>${post.title}</h3>
+                <p>${post.summary}</p>
+                <a href="${post.link}" class="read-more">자세히 보기</a>
+            </div>
+        </article>
+    `).join('');
+}
+
+// 기존 애니메이션 로직 유지 및 초기화 실행
+window.addEventListener('load', () => {
+    renderBlogPosts();
+    revealOnScroll(); // 렌더링 후 애니메이션 재계산
+});
+
 // Header scroll effect
 window.addEventListener('scroll', () => {
     const header = document.querySelector('header');

@@ -1,14 +1,92 @@
-<!doctype html>
+ÿþ<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
-  <link href='/style.css' rel='stylesheet'>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto Number Generator</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .numbers-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .number {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-  <h1>Hello, world!</h1>
-  <button onclick="console.log('hello');">Press me</button>
-  <script defer type="text/javascript" src="/main.js"></script>
+    <div class="container">
+        <h1>Lotto Number Generator</h1>
+        <div id="numbers-container" class="numbers-container"></div>
+        <button id="generate-button">Generate Numbers</button>
+    </div>
+    <script>
+        const numbersContainer = document.getElementById('numbers-container');
+        const generateButton = document.getElementById('generate-button');
+
+        function generateNumbers() {
+            const numbers = new Set();
+            while (numbers.size < 6) {
+                const randomNumber = Math.floor(Math.random() * 45) + 1;
+                numbers.add(randomNumber);
+            }
+            return Array.from(numbers).sort((a, b=> a - b);
+        }
+
+        function displayNumbers(numbers) {
+            numbersContainer.innerHTML = '';
+            for (const number of numbers{
+                const numberElement = document.createElement('div');
+                numberElement.classList.add('number');
+                numberElement.textContent = number;
+                numbersContainer.appendChild(numberElement);
+            }
+        }
+
+        function generateAndDisplayNumbers() {
+            const newNumbers = generateNumbers();
+            displayNumbers(newNumbers);
+        }
+
+        generateButton.addEventListener('click', generateAndDisplayNumbers);
+
+        // Initial generation
+        generateAndDisplayNumbers();
+    </script>
 </body>
 </html>

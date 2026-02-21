@@ -158,6 +158,59 @@ section {
     text-align: center;
     transition: all 0.3s;
     border-bottom: 5px solid transparent;
+    text-decoration: none; /* 추가: 링크 밑줄 제거 */
+    color: inherit; /* 추가: 텍스트 색상 유지 */
+    display: block; /* 추가: 클릭 영역 확장 */
+}
+
+/* 블로그 페이지 스타일 */
+.blog-content {
+    padding-top: 120px;
+    padding-bottom: 80px;
+}
+
+.blog-header {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.blog-meta {
+    color: #888;
+    font-size: 0.9rem;
+    margin-top: 10px;
+}
+
+.blog-body {
+    background-color: var(--white);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.blog-body h4 {
+    margin: 25px 0 15px;
+    color: var(--primary-color);
+    font-size: 1.4rem;
+}
+
+.blog-body p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.blog-body ul {
+    margin-bottom: 20px;
+    padding-left: 20px;
+}
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 500;
 }
 
 .service-card:hover {

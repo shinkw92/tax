@@ -64,6 +64,31 @@
     <section id="blog" class="blog-section">
         <div class="container">
             <h2 class="section-title">세무 정보 블로그</h2>
+            
+            <!-- 글쓰기 폼 추가 (관리자용 시뮬레이션) -->
+            <div class="admin-action" style="margin-bottom: 30px; text-align: right;">
+                <button id="show-post-form" class="btn secondary" style="padding: 8px 15px; font-size: 0.9rem;">새 글 작성하기</button>
+            </div>
+            
+            <div id="post-form-container" class="post-form-card" style="display: none; background: #f8f9fa; padding: 25px; border-radius: 10px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                <h3 style="margin-bottom: 20px;">새로운 세무 정보 등록</h3>
+                <form id="blog-form">
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="post-title" placeholder="제목을 입력하세요" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="post-category" placeholder="카테고리 (예: 절세 팁, 부동산 세무)" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px;">
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <textarea id="post-summary" placeholder="내용 요약을 입력하세요" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 5px; height: 100px;"></textarea>
+                    </div>
+                    <div style="display: flex; gap: 10px; justify-content: flex-end;">
+                        <button type="button" id="cancel-post" class="btn" style="background: #ccc;">취소</button>
+                        <button type="submit" class="btn primary">글 저장하기</button>
+                    </div>
+                </form>
+            </div>
+
             <div id="blog-posts-container" class="blog-grid">
                 <!-- 자바스크립트로 블로그 글이 여기에 생성됩니다 -->
             </div>
@@ -127,6 +152,28 @@
             <p>사업자등록번호: 123-45-67890 | 대표 세무사: 홍길동</p>
         </div>
     </footer>
+
+    <!-- Firebase SDK (v10.8.0) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+        // ※ 실제 Firebase 콘솔에서 복사한 설정값으로 교체해야 합니다.
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // main.js에서 사용할 수 있도록 전역 객체에 할당
+        window.fb = { db, collection, addDoc, getDocs, query, orderBy };
+    </script>
 
     <script src="main.js"></script>
 </body>
